@@ -1,9 +1,9 @@
 package HT7;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class T3 {
 
@@ -23,14 +23,20 @@ public class T3 {
         personList.add(new Person(" 7&Arnold", "Stevenson", 19));
         personList.add(null);
         personList.add(new Person("Aaron)*(_", "Bortnicker", 18));
+/*
+        Set<String> names;
 
-
-        Set<String> names = new HashSet<>();
+ x.getFirstName().toUpperCase().replaceAll("[^a-zA-Z]", "")
         for (Person person : personList) {
             if (person != null && person.getAge() >= 18) {
                 names.add(person.getFirstName().toUpperCase().replaceAll("[^a-zA-Z]", ""));
             }
         }
+*/
+        //v2 --------------------------------
+        Predicate<Person> realAdult = (x) -> x != null && x.getAge() >= 18 && x.getFirstName().replaceAll("[^a-zA-Z]", "") != "";
+        Function<Person, String> getPersonName = (x) -> x.getFirstName().toUpperCase().replaceAll("[^a-zA-Z]", "");
+        Set<String> names = personList.stream().filter(realAdult).map(getPersonName).collect(Collectors.toSet());
         names.remove("");
         System.out.println(names);
     }
