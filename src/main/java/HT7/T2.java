@@ -29,7 +29,7 @@ public class T2 {
     public static void main(String[] args) {
         Integer selectedAmount = 5;
         List<Book> listOfBooks = createRandBookList(selectedAmount);
-/*
+
         //sub-task 1
         //ST11 print all books using method toString (information should be consistent, e.g. “name: Book1, price: 10”)
         System.out.println("\nST11");
@@ -88,41 +88,28 @@ public class T2 {
 
         //ST17 get all books except books with price higher than 30
         System.out.println("\nST17");
+        Integer cheapBooks = 0;
         for (int i = 0; i < listOfBooks.size(); i++) {
             if (listOfBooks.get(i).getPrice() < 30) {
+                cheapBooks += 1;
                 System.out.println("Book: \"" + listOfBooks.get(i).getName() + "\", price: " + listOfBooks.get(i).getPrice() + "$");
             }
         }
-
-*/
-        //ST18 sort books by name in desc order, if name equals then sort by price
-        System.out.println("\nST18");
-        List<Book> sortedBooks = new ArrayList<>();
-        sortedBooks.add(new Book("name1",1.0f));
-        sortedBooks.add(new Book("name2",2.0f));
-        sortedBooks.add(new Book("name3",3.0f));
-        sortedBooks.add(new Book("name5",5.0f));
-        sortedBooks.add(new Book("name5",4.0f));
-
-        sortedBooks.forEach(book -> System.out.println(book.getName()+" "+book.getPrice()));
-
-        Map<String, Float> sort = new TreeMap<>();
-        for(int i=0;i<sortedBooks.size();i++){
-            sort.put(sortedBooks.get(i).getName(),sortedBooks.get(i).getPrice());
+        if (cheapBooks == 0) {
+            System.out.println("There is no book with price less than 30");
         }
-        System.out.println(sort);
-        //sort.put(sortedBooks.forEach(book -> book.getName()),sortedBooks.forEach(book -> book.getPrice()));
-        //sortedBooks.addAll(listOfBooks);
-        //sortedBooks.forEach(Book -> System.out.println("Book name: \"" + Book.getName() + "\" price: " + Book.getPrice()));
-        //sortedBooks.stream().sorted().forEach(Book -> System.out.println("Book name: \"" + Book.getName() + "\" price: " + Book.getPrice()));
 
+        //ST18 sort books by name in desc order, if name equals then sort by price
+        System.out.println("\nST18 - Sorted list\n");
+        listOfBooks.sort((o1, o2) -> -o1.compareTo(o2));
+        listOfBooks.forEach(book -> System.out.println("Book: \"" + book.getName() + "\", price: " + book.getPrice()));
 
         //Sub task 2
         Book book1 = new Book("myBook", 5f);
         Book book2 = new Book("myBook", 5f);
         Map<Book, String> mapWithBook = new HashMap<>();
-        mapWithBook.put(book1,"libraryName");
-
+        mapWithBook.put(book1, "libraryName");
+        System.out.println("\nSub task 2 - " + mapWithBook.get(book2));
     }
 
 
