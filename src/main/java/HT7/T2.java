@@ -174,7 +174,8 @@ public class T2 {
         //ST18 sort books by name in desc order, if name equals then sort by price
         System.out.println("\nST18 - Sorted list\n");
         listOfBooks.sort((o1, o2) -> -o1.compareTo(o2));
-        listOfBooks.forEach(book -> System.out.println("Book: \"" + book.getName() + "\", price: " + book.getPrice()));
+        //st18 v2? хз куда этот ту стринг тыкать, раз оно в принте и так есть
+        listOfBooks.forEach(book -> System.out.println("book: " + book.getName().concat(" price: "+book.getPrice())));//System.out.println("Book: \"" + book.getName() + "\", price: " + book.getPrice()));
 
         //Sub task 2
         Book book1 = new Book("myBook", 5f);
