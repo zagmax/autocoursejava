@@ -4,7 +4,7 @@ interface StringFunction {
     String run(String str);
 }
 
-public class OptionalT4 {
+public class OptionalT4 { //+
     public static void main(String[] args) {
         StringFunction exclaim = (s) -> s.concat("!");
         StringFunction ask = (s) -> s.concat("?");

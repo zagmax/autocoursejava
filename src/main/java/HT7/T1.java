@@ -14,9 +14,6 @@ public class T1 {
         startingText=startingText.replaceAll("\""," ");
         List<String> listOfWords = Arrays.asList(startingText.split(" "));
         System.out.println(listOfWords);
-        Predicate<String> isWordStartsWithSelectedLetter = (String word) -> word.replaceFirst("[lL]", "L").startsWith("L") ? true : false;
-        Function<List<String>, List<String>> selectWordsThatStartWithALetter = (text) -> text.stream().filter(isWordStartsWithSelectedLetter).collect(Collectors.toList());
-        System.out.println(selectWordsThatStartWithALetter.apply(listOfWords));
-
+        System.out.println(listOfWords.stream().filter(word -> word.toLowerCase().startsWith("o")).collect(Collectors.toList()));
     }
 }

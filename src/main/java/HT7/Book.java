@@ -48,4 +48,9 @@ public class Book implements   Comparable  {
     public int hashCode() {
         return Objects.hash(name, price);
     }
+
+    @Override
+    public String toString() {
+        return "Book: \"" + this.getName() + "\", price: " + this.getPrice() + "$";
+    }
 }
