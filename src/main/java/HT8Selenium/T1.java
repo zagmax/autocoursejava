@@ -1,40 +1,37 @@
 package HT8Selenium;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 
 import java.util.List;
 
-
 public class T1 {
-    public static WebDriver driver = new ChromeDriver();
-    public static HomePage homePage;
+    //public static WebDriver driver = new ChromeDriver();
+    static HomePage homePage;
 
     public static void main(String[] args) throws InterruptedException {
-        homePage.driver.get(homePage.HOME_PAGE_URL);
         homePage = PageFactory.getHomePage();
+        //homePage.driver.get(homePage.HOME_PAGE_URL);
         Actions actions = new Actions(homePage.driver);
         String nameOfBook = "Transfer Activity Book Unicorns";
-        PageFactory.waitFor(ExpectedConditions.visibilityOf(driver.findElement(By.className("text-input"))));
-
-        //PageFactory.waitFor(ExpectedConditions.visibilityOf(homePage.getSearchInputBox()));
+        //PageFactory.waitFor(ExpectedConditions.visibilityOf(driver.findElement(By.className("text-input"))));
+        //PageFactory.waitFor(ExpectedConditions.);
+        PageFactory.waitFor(ExpectedConditions.visibilityOf(homePage.getSearchInputBox()));
         //driver.findElement(By.className("text-input"))
         homePage.getSearchInputBox().sendKeys("camilla");
         PageFactory
                 .waitFor(ExpectedConditions
                 .visibilityOf(homePage.getSearchButton()));
         homePage.getSearchButton().click();
-        List<WebElement> bookList = driver.findElements(By.className("book-item"));
+        List<WebElement> bookList = homePage.driver.findElements(By.className("book-item"));
         List<WebElement> selectedBook = bookList.stream().filter(book -> book.getText().contains(nameOfBook)).toList();
         WebElement book = selectedBook.get(0);
         actions.moveToElement(book.findElement(By.className("btn-wrap"))).click().perform();
         PageFactory.waitFor(ExpectedConditions.presenceOfElementLocated(By.className("modal-content")));
-        actions.moveToElement(driver.findElement(By.className("close"))).click().perform();
-        PageFactory.waitFor(ExpectedConditions.invisibilityOf(driver.findElement(By.className("modal-content"))));
+        actions.moveToElement(homePage.driver.findElement(By.className("close"))).click().perform();
+        PageFactory.waitFor(ExpectedConditions.invisibilityOf(homePage.driver.findElement(By.className("modal-content"))));
         actions.moveToElement(book.findElement(By.className("title"))).click().perform();
         //driver.quit();
     }
