@@ -1,13 +1,11 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
-public class PDP {
-    WebDriver driver;
 
+public class PDP extends BasePage {
     public PDP(WebDriver driver) {
+        super(driver);
         this.driver = driver;
-        PageFactory.initElements(driver, this);
     }
 }

@@ -15,8 +15,8 @@ public class PageFactory {
 
     public BasePage getBasePage() {
         return new BasePage(driver);
-
     }
+
 
     public PDP getPDP() {
         return new PDP(driver);
