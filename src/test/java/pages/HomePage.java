@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 
-
 import java.util.List;
 
 public class HomePage extends BasePage {
@@ -21,19 +20,15 @@ public class HomePage extends BasePage {
         this.driver = driver;
     }
 
-
     public WebElement getSearchButton() {
-        WebElement searchButton = driver.findElement(searchButtonPath);
-        return searchButton;
+        return driver.findElement(searchButtonPath);
     }
 
     public WebElement getSearchInputBox() {
-        WebElement searchInputBox = driver.findElement(searchInputBoxPath);
-        return searchInputBox;
+        return driver.findElement(searchInputBoxPath);
     }
 
     public List<WebElement> getBooksList() {
-        List<WebElement> bookList = this.driver.findElements(allBooks);
-        return bookList;
+        return driver.findElements(allBooks);
     }
 }
