@@ -1,6 +1,5 @@
-package HT9;
+package HT9.cases;
 
-import HT9.cases.Cases;
 import org.junit.runner.RunWith;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.platform.suite.api.SelectClasses;
