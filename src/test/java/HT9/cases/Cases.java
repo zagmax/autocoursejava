@@ -32,18 +32,16 @@ public class Cases {
         driver.manage().window().maximize();
         driver.get(HOME_PAGE_URL);
         pageFactory = new PageFactory(driver);
-        basePage = pageFactory.getBasePage();
     }
 
     @Test
     public void checkForBookAvailability() {
         homePage = pageFactory.getHomePage();
-        basePage.waitForPageLoadComplete(DEFAULT_WAITING_TIME);
+        homePage.waitForPageLoadComplete(DEFAULT_WAITING_TIME);
         homePage.getSearchInputBox().sendKeys("camilla");
         homePage.getSearchButton().click();
-        basePage.waitForPageLoadComplete(DEFAULT_WAITING_TIME);
+        homePage.waitForPageLoadComplete(DEFAULT_WAITING_TIME);
         Assert.assertTrue("no book was found", homePage.getBooksList().stream().filter(book -> book.getText().contains(nameOfBook)).toList().size() > 0);
-
     }
 
     @AfterClass
