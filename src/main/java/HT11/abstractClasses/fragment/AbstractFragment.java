@@ -5,12 +5,12 @@ public abstract class AbstractFragment {
 
     private WebElement rootElement;
 
-    public void setRootElement(WebElement element) {
-        this.rootElement = element;
-    }
-
     public AbstractFragment(WebElement rootElement) {
         this.rootElement = rootElement;
+    }
+
+    public void setRootElement(WebElement element) {
+        this.rootElement = element;
     }
 
     public WebElement getRootElement() {

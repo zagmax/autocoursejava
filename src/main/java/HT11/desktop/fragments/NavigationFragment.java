@@ -7,9 +7,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class NavigationFragment extends AbstractFragment {
 
-    public NavigationFragment(WebElement rootElement) {
-        super(rootElement);
-    }
     @FindBy(xpath = ("//div[@class='user-nav-wrap ']"))
     private static WebElement rootElement;
     private static By homePageIconLink = By.xpath("//div[@class='user-nav-wrap ']//a[@class='home-icon-link']");
@@ -19,6 +16,9 @@ public class NavigationFragment extends AbstractFragment {
     private By trackOrderLink = By.xpath("//div[@class='user-nav-wrap ']//a[@href='/track']");
     private By wishlistLink = By.xpath("//div[@class='user-nav-wrap ']//a[@href='/account/wishlist']");
     private By loginLink = By.xpath("//div[@class='user-nav-wrap ']//a[@href='/account/login/to/account']");
+    public NavigationFragment(WebElement rootElement) {
+        super(rootElement);
+    }
 
     public static By getHomePageIconLink() {
         return homePageIconLink;

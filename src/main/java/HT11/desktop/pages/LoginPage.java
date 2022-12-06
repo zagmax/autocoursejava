@@ -1,13 +1,21 @@
 package HT11.desktop.pages;
 
+import HT11.abstractClasses.page.AbstractPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import HT11.desktop.fragments.NavigationFragment;
+import org.openqa.selenium.WebElement;
 
-public class LoginPage {
+public class LoginPage extends AbstractPage {
     WebDriver driver;
 
+    private By signinLoginField = By.xpath("//form[@name='signIn']//input[@name='email']");
+
+    private By signinPassField = By.xpath("//form[@name='signIn']//input[@name='password']");
+    private By signinSubmitButton = By.xpath("//form[@name='signIn']//input[@id='signInSubmit']");
+    private By signInShowPassCheckbox = By.xpath("//form[@name='signIn']//input[@id='auth-show-password-checkbox']");
     public LoginPage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 
@@ -15,24 +23,19 @@ public class LoginPage {
         driver.findElement(NavigationFragment.getHomePageIconLink()).click();
     }
 
-    private By signinLoginField = By.xpath("//form[@name='signIn']//input[@name='email']");
-    private By signinPassField = By.xpath("//form[@name='signIn']//input[@name='password']");
-    private By signinSubmitButton = By.xpath("//form[@name='signIn']//input[@id='signInSubmit']");
-    private By signInShowPassCheckbox = By.xpath("//form[@name='signIn']//input[@id='auth-show-password-checkbox']");
-
-    public By getSigninLoginField() {
-        return signinLoginField;
+    public WebElement getSigninLoginField() {
+        return driver.findElement(signinLoginField);
     }
 
-    public By getSigninPassField() {
-        return signinPassField;
+    public WebElement getSigninPassField() {
+        return driver.findElement(signinPassField);
     }
 
-    public By getSigninSubmitButton() {
-        return signinSubmitButton;
+    public WebElement getSigninSubmitButton() {
+        return driver.findElement(signinSubmitButton);
     }
 
-    public By getSignInShowPassCheckbox() {
-        return signInShowPassCheckbox;
+    public WebElement getSignInShowPassCheckbox() {
+        return driver.findElement(signInShowPassCheckbox);
     }
 }
