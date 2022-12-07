@@ -7,10 +7,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class SingletonDriver {
-    public static WebDriver driver = new ChromeDriver();
     static By loginButton = By.cssSelector(".user-nav .right-nav li:last-child");
 
-    public static void main(String[] args) {
+    private static WebDriver driver;
+
+    private SingletonDriver() {
+    }
+
+    public static WebDriver getInstance() {
+        if (driver == null) {
+            driver = new ChromeDriver();
+        }
+        return driver;
+    }
+
+    public void checkLoginRedirect() {
         driver.manage().window().maximize();
         driver.get("https://www.bookdepository.com/");
         driver.findElement(loginButton).click();
