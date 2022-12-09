@@ -17,7 +17,6 @@ public class NavigationFragment extends AbstractFragment {
 
     public NavigationFragment(WebElement rootElement) {
         super(rootElement);
-        this.rootElement = rootElement;
     }
 
     public static By getHomePageIconLink() {

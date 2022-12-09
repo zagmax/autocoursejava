@@ -16,7 +16,6 @@ public class LoginPage extends AbstractPage {
     private By signInShowPassCheckbox = By.xpath("//form[@name='signIn']//input[@id='auth-show-password-checkbox']");
     public LoginPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
     }
 
     public void backToHomePage() {
