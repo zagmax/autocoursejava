@@ -1,13 +1,13 @@
 package HT11.driver;
 
+import HT11.desktop.pages.LoginPage;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class SingletonDriver {
-    static By loginButton = By.cssSelector(".user-nav .right-nav li:last-child");
+    LoginPage loginPage = new LoginPage(driver);
 
     private static WebDriver driver;
 
@@ -24,8 +24,9 @@ public class SingletonDriver {
     public void checkLoginRedirect() {
         driver.manage().window().maximize();
         driver.get("https://www.bookdepository.com/");
-        driver.findElement(loginButton).click();
+        loginPage.clickLoginLink();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.bookdepository.com/account/login/to/account");
+        loginPage.backToHomePage();
         driver.quit();
     }
 }
