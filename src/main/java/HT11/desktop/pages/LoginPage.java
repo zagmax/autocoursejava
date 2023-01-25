@@ -1,48 +1,37 @@
 package HT11.desktop.pages;
 
 import HT11.abstractClasses.page.AbstractPage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends AbstractPage {
-    WebDriver driver;
-
-    private By signinLoginField = By.xpath("//form[@name='signIn']//input[@name='email']");
-
-    private By signinPassField = By.xpath("//form[@name='signIn']//input[@name='password']");
-    private By signinSubmitButton = By.xpath("//form[@name='signIn']//input[@id='signInSubmit']");
-    private By signInShowPassCheckbox = By.xpath("//form[@name='signIn']//input[@id='auth-show-password-checkbox']");
+    @FindBy(xpath = "//form[@name='signIn']//input[@name='email']")
+    private WebElement signinLoginField;
+    @FindBy(xpath = "//form[@name='signIn']//input[@name='password']")
+    private WebElement signinPassField;
+    @FindBy(xpath = "//form[@name='signIn']//input[@id='signInSubmit']")
+    private WebElement signinSubmitButton;
+    @FindBy(xpath = "//form[@name='signIn']//input[@id='auth-show-password-checkbox']")
+    private WebElement signInShowPassCheckbox;
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    public void backToHomePage() {
-        driver.findElement(navFrag.getHomePageIconLink()).click();
-    }
-
-    public void clickLogSubmitButton() {
-        driver.findElement(signinSubmitButton).click();
-    }
-
-    public void clickShowPassCheckbox() {
-        driver.findElement(signInShowPassCheckbox).click();
-    }
-
     public WebElement getSigninLoginField() {
-        return driver.findElement(signinLoginField);
+        return signinLoginField;
     }
 
     public WebElement getSigninPassField() {
-        return driver.findElement(signinPassField);
+        return (signinPassField);
     }
 
     public WebElement getSigninSubmitButton() {
-        return driver.findElement(signinSubmitButton);
+        return (signinSubmitButton);
     }
 
     public WebElement getSignInShowPassCheckbox() {
-        return driver.findElement(signInShowPassCheckbox);
+        return (signInShowPassCheckbox);
     }
 }

@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class SingletonDriver {
-    LoginPage loginPage = new LoginPage(driver);
+    private final LoginPage loginPage = new LoginPage(driver);
 
     private static WebDriver driver;
 
@@ -24,9 +24,9 @@ public class SingletonDriver {
     public void checkLoginRedirect() {
         driver.manage().window().maximize();
         driver.get("https://www.bookdepository.com/");
-        loginPage.clickLoginLink();
+        loginPage.clickElement(loginPage.getNavFrag().getLoginLink());
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.bookdepository.com/account/login/to/account");
-        loginPage.backToHomePage();
+        loginPage.clickElement(loginPage.getNavFrag().getHomePageIconLink());
         driver.quit();
     }
 }
