@@ -1,60 +1,87 @@
 package HT11.desktop.fragments;
 
 import HT11.abstractClasses.fragment.AbstractFragment;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+
 
 public class NavigationFragment extends AbstractFragment {
-    @FindBy(css = ".user-nav .right-nav li:last-child")
-    private WebElement loginButton;
-    @FindBy(xpath = "//div[@class='user-nav-wrap ']//a[@class='home-icon-link']")
-    private WebElement homePageIconLink;
-    @FindBy(xpath = "//div[@class='user-nav-wrap ']//a[@href='/contactus']")
-    private WebElement contactUsLink;
-    @FindBy(xpath = "//div[@class='user-nav-wrap ']//a[@href='/help']")
-    private WebElement helpLink;
-    @FindBy(xpath = "//div[@class='user-nav-wrap ']//div[@class='free-delivery']")
-    private WebElement middleNavLink;
-    @FindBy(xpath = "//div[@class='user-nav-wrap ']//a[@href='/track']")
-    private WebElement trackOrderLink;
-    @FindBy(xpath = "//div[@class='user-nav-wrap ']//a[@href='/account/wishlist']")
-    private WebElement wishlistLink;
-    @FindBy(xpath = "//div[@class='user-nav-wrap ']//a[@href='/account/login/to/account']")
-    private WebElement loginLink;
+    private By loginButton = By.cssSelector(".user-nav .right-nav li:last-child");
+    private By homePageIconLink = By.xpath("//div[@class='user-nav-wrap ']//a[@class='home-icon-link']");
+    private By contactUsLink = By.xpath("//div[@class='user-nav-wrap ']//a[@href='/contactus']");
+    private By helpLink = By.xpath("//div[@class='user-nav-wrap ']//a[@href='/help']");
+    private By middleNavLink = By.xpath("//div[@class='user-nav-wrap ']//div[@class='free-delivery']");
+    private By trackOrderLink = By.xpath("//div[@class='user-nav-wrap ']//a[@href='/track']");
+    private By wishlistLink = By.xpath("//div[@class='user-nav-wrap ']//a[@href='/account/wishlist']");
+    private By loginLink = By.xpath("//div[@class='user-nav-wrap ']//a[@href='/account/login/to/account']");
 
-    public NavigationFragment(WebElement element) {
-        super(element);
+    public NavigationFragment(WebElement element, WebDriver driver) {
+        super(element, driver);
     }
 
     public WebElement getLoginButton() {
-        return loginButton;
+        return getElement(loginButton);
     }
 
     public WebElement getHomePageIconLink() {
-        return homePageIconLink;
+        return getElement(homePageIconLink);
     }
 
     public WebElement getContactUsLink() {
-        return contactUsLink;
+        return getElement(contactUsLink);
     }
 
     public WebElement getHelpLink() {
-        return helpLink;
+        return getElement(helpLink);
     }
 
     public WebElement getMiddleNavLink() {
-        return middleNavLink;
+        return getElement(middleNavLink);
     }
 
     public WebElement getTrackOrderLink() {
-        return trackOrderLink;
+        return getElement(trackOrderLink);
     }
 
     public WebElement getWishlistLink() {
-        return wishlistLink;
+        return getElement(wishlistLink);
     }
 
     public WebElement getLoginLink() {
-        return loginLink;
+        return getElement(loginLink);
     }
+
+    public void clickLoginLink() {
+        clickElement(getLoginLink());
+    }
+
+    public void clickLoginButton() {
+        clickElement(getLoginButton());
+    }
+
+    public void clickWishlistLink() {
+        clickElement(getWishlistLink());
+    }
+
+    public void clickTrackOrderLink() {
+        clickElement(getTrackOrderLink());
+    }
+
+    public void clickHelpLink() {
+        clickElement(getHelpLink());
+    }
+
+    public void clickContactUsLink() {
+        clickElement(getContactUsLink());
+    }
+
+    public void clickMiddleNavLink() {
+        clickElement(getMiddleNavLink());
+    }
+
+    public void clickHomePageIconLink() {
+        clickElement(getHomePageIconLink());
+    }
+
 }

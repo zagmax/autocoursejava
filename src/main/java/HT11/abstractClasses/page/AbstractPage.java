@@ -21,7 +21,7 @@ public abstract class AbstractPage {
 
     public NavigationFragment getNavFrag() {
         if (navFrag == null) {
-            navFrag = new NavigationFragment(driver.findElement(By.xpath("//*[@class='user-nav-wrap ']")));
+            navFrag = new NavigationFragment(driver.findElement(By.xpath("//*[@class='user-nav-wrap ']")), driver);
         }
         return navFrag;
     }
@@ -34,7 +34,14 @@ public abstract class AbstractPage {
         waitFor(ExpectedConditions.visibilityOf(element));
         element.click();
     }
-    public void sendKeys(WebElement element, String keys){
+
+    public void sendKeys(WebElement element, String keys) {
+        waitFor(ExpectedConditions.visibilityOf(element));
         element.sendKeys(keys);
+    }
+
+    protected WebElement getElement(By locator) {
+        waitFor(ExpectedConditions.visibilityOf(driver.findElement(locator)));
+        return driver.findElement(locator);
     }
 }

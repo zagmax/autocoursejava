@@ -1,37 +1,41 @@
 package HT11.desktop.pages;
 
 import HT11.abstractClasses.page.AbstractPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends AbstractPage {
-    @FindBy(xpath = "//form[@name='signIn']//input[@name='email']")
-    private WebElement signinLoginField;
-    @FindBy(xpath = "//form[@name='signIn']//input[@name='password']")
-    private WebElement signinPassField;
-    @FindBy(xpath = "//form[@name='signIn']//input[@id='signInSubmit']")
-    private WebElement signinSubmitButton;
-    @FindBy(xpath = "//form[@name='signIn']//input[@id='auth-show-password-checkbox']")
-    private WebElement signInShowPassCheckbox;
+    private By signinLoginField = By.xpath("//form[@name='signIn']//input[@name='email']");
+    private By signinPassField = By.xpath("//form[@name='signIn']//input[@name='password']");
+    private By signinSubmitButton = By.xpath("//form[@name='signIn']//input[@id='signInSubmit']");
+    private By signInShowPassCheckbox = By.xpath("//form[@name='signIn']//input[@id='auth-show-password-checkbox']");
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     public WebElement getSigninLoginField() {
-        return signinLoginField;
+        return getElement(signinLoginField);
     }
 
     public WebElement getSigninPassField() {
-        return (signinPassField);
+        return getElement(signinPassField);
     }
 
     public WebElement getSigninSubmitButton() {
-        return (signinSubmitButton);
+        return getElement(signinSubmitButton);
     }
 
     public WebElement getSignInShowPassCheckbox() {
-        return (signInShowPassCheckbox);
+        return getElement(signInShowPassCheckbox);
+    }
+
+    public void clickSigninSubmitButton() {
+        clickElement(getSigninSubmitButton());
+    }
+
+    public void clickSignInShowPassCheckbox() {
+        clickElement(getSignInShowPassCheckbox());
     }
 }

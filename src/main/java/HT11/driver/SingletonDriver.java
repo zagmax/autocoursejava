@@ -24,9 +24,9 @@ public class SingletonDriver {
     public void checkLoginRedirect() {
         driver.manage().window().maximize();
         driver.get("https://www.bookdepository.com/");
-        loginPage.clickElement(loginPage.getNavFrag().getLoginLink());
+        loginPage.getNavFrag().clickLoginLink();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.bookdepository.com/account/login/to/account");
-        loginPage.clickElement(loginPage.getNavFrag().getHomePageIconLink());
+        loginPage.getNavFrag().clickHomePageIconLink();
         driver.quit();
     }
 }
