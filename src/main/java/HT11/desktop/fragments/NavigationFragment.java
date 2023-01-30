@@ -17,43 +17,43 @@ public class NavigationFragment extends AbstractFragment {
     private By loginLink = By.xpath("//div[@class='user-nav-wrap ']//a[@href='/account/login/to/account']");
 
     public NavigationFragment(WebElement element, WebDriver driver) {
-        super(element, driver);
+        super(element);
     }
 
-    public WebElement getLoginButton() {
-        return getElement(loginButton);
+    public By getLoginButton() {
+        return (loginButton);
     }
 
-    public WebElement getHomePageIconLink() {
-        return getElement(homePageIconLink);
+    public By getHomePageIconLink() {
+        return (homePageIconLink);
     }
 
-    public WebElement getContactUsLink() {
-        return getElement(contactUsLink);
+    public By getContactUsLink() {
+        return (contactUsLink);
     }
 
-    public WebElement getHelpLink() {
-        return getElement(helpLink);
+    public By getHelpLink() {
+        return (helpLink);
     }
 
-    public WebElement getMiddleNavLink() {
-        return getElement(middleNavLink);
+    public By getMiddleNavLink() {
+        return (middleNavLink);
     }
 
-    public WebElement getTrackOrderLink() {
-        return getElement(trackOrderLink);
+    public By getTrackOrderLink() {
+        return (trackOrderLink);
     }
 
-    public WebElement getWishlistLink() {
-        return getElement(wishlistLink);
+    public By getWishlistLink() {
+        return (wishlistLink);
     }
 
-    public WebElement getLoginLink() {
-        return getElement(loginLink);
+    public By getLoginLink() {
+        return (loginLink);
     }
 
     public void clickLoginLink() {
-        clickElement(getLoginLink());
+        clickElement(loginLink);
     }
 
     public void clickLoginButton() {

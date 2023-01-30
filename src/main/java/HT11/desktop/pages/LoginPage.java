@@ -32,10 +32,10 @@ public class LoginPage extends AbstractPage {
     }
 
     public void clickSigninSubmitButton() {
-        clickElement(getSigninSubmitButton());
+        clickElement(signinSubmitButton);
     }
 
     public void clickSignInShowPassCheckbox() {
-        clickElement(getSignInShowPassCheckbox());
+        clickElement(signInShowPassCheckbox);
     }
 }

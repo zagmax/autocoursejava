@@ -1,15 +1,11 @@
 package HT11.abstractClasses.page;
 
 import HT11.desktop.fragments.NavigationFragment;
+import HT11.utils.WebDriverWaiter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-
 public abstract class AbstractPage {
     protected WebDriver driver;
     private NavigationFragment navFrag;
@@ -26,22 +22,17 @@ public abstract class AbstractPage {
         return navFrag;
     }
 
-    public void waitFor(ExpectedCondition<WebElement> func) {
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(func);
-    }
-
-    public void clickElement(WebElement element) {
-        waitFor(ExpectedConditions.visibilityOf(element));
-        element.click();
+    public void clickElement(By locator) {
+        getElement(locator).click();
     }
 
     public void sendKeys(WebElement element, String keys) {
-        waitFor(ExpectedConditions.visibilityOf(element));
+        WebDriverWaiter.waitFor(ExpectedConditions.visibilityOf(element));
         element.sendKeys(keys);
     }
 
-    protected WebElement getElement(By locator) {
-        waitFor(ExpectedConditions.visibilityOf(driver.findElement(locator)));
+    public WebElement getElement(By locator) {
+        WebDriverWaiter.waitFor(ExpectedConditions.visibilityOf(driver.findElement(locator)));
         return driver.findElement(locator);
     }
 }
