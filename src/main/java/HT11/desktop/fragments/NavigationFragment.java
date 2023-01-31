@@ -20,40 +20,40 @@ public class NavigationFragment extends AbstractFragment {
         super(element);
     }
 
-    public By getLoginButton() {
-        return (loginButton);
+    public WebElement getLoginButton() {
+        return getElement((loginButton));
     }
 
-    public By getHomePageIconLink() {
-        return (homePageIconLink);
+    public WebElement getHomePageIconLink() {
+        return getElement((homePageIconLink));
     }
 
-    public By getContactUsLink() {
-        return (contactUsLink);
+    public WebElement getContactUsLink() {
+        return getElement((contactUsLink));
     }
 
-    public By getHelpLink() {
-        return (helpLink);
+    public WebElement getHelpLink() {
+        return getElement((helpLink));
     }
 
-    public By getMiddleNavLink() {
-        return (middleNavLink);
+    public WebElement getMiddleNavLink() {
+        return getElement((middleNavLink));
     }
 
-    public By getTrackOrderLink() {
-        return (trackOrderLink);
+    public WebElement getTrackOrderLink() {
+        return getElement((trackOrderLink));
     }
 
-    public By getWishlistLink() {
-        return (wishlistLink);
+    public WebElement getWishlistLink() {
+        return getElement((wishlistLink));
     }
 
-    public By getLoginLink() {
-        return (loginLink);
+    public WebElement getLoginLink() {
+        return getElement((loginLink));
     }
 
     public void clickLoginLink() {
-        clickElement(loginLink);
+        clickElement(getLoginLink());
     }
 
     public void clickLoginButton() {

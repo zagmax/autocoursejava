@@ -9,6 +9,7 @@ import java.time.Duration;
 
 public class WebDriverWaiter {
     protected static WebDriver driver;
+
     public static void waitFor(ExpectedCondition<WebElement> func) {
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(func);
     }
