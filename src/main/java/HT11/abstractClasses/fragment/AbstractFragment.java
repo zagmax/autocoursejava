@@ -22,12 +22,12 @@ public abstract class AbstractFragment {
     }
 
     public WebElement getElement(By locator) {
+        WebDriverWaiter.waitFor(ExpectedConditions.visibilityOfElementLocated(locator));
         return rootElement.findElement(locator);
     }
-
-    public void clickElement(WebElement element) {
-        WebDriverWaiter.waitFor(ExpectedConditions.visibilityOf(element));
-        element.click();
+    public void clickElement(By locator) {
+        getElement(locator).click();
     }
+
 
 }

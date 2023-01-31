@@ -20,68 +20,68 @@ public class NavigationFragment extends AbstractFragment {
         super(element);
     }
 
-    public WebElement getLoginButton() {
-        return getElement((loginButton));
+    public By getLoginButton() {
+        return (loginButton);
     }
 
-    public WebElement getHomePageIconLink() {
-        return getElement((homePageIconLink));
+    public By getHomePageIconLink() {
+        return (homePageIconLink);
     }
 
-    public WebElement getContactUsLink() {
-        return getElement((contactUsLink));
+    public By getContactUsLink() {
+        return (contactUsLink);
     }
 
-    public WebElement getHelpLink() {
-        return getElement((helpLink));
+    public By getHelpLink() {
+        return (helpLink);
     }
 
-    public WebElement getMiddleNavLink() {
-        return getElement((middleNavLink));
+    public By getMiddleNavLink() {
+        return (middleNavLink);
     }
 
-    public WebElement getTrackOrderLink() {
-        return getElement((trackOrderLink));
+    public By getTrackOrderLink() {
+        return (trackOrderLink);
     }
 
-    public WebElement getWishlistLink() {
-        return getElement((wishlistLink));
+    public By getWishlistLink() {
+        return (wishlistLink);
     }
 
-    public WebElement getLoginLink() {
-        return getElement((loginLink));
+    public By getLoginLink() {
+        return (loginLink);
     }
 
     public void clickLoginLink() {
-        clickElement(getLoginLink());
+        clickElement(loginLink);
     }
 
     public void clickLoginButton() {
-        clickElement(getLoginButton());
+        clickElement(loginButton);
     }
 
     public void clickWishlistLink() {
-        clickElement(getWishlistLink());
+        clickElement(wishlistLink);
     }
 
     public void clickTrackOrderLink() {
-        clickElement(getTrackOrderLink());
+        clickElement(trackOrderLink);
     }
 
     public void clickHelpLink() {
-        clickElement(getHelpLink());
+        clickElement(helpLink);
     }
 
     public void clickContactUsLink() {
-        clickElement(getContactUsLink());
+        clickElement(contactUsLink);
     }
 
     public void clickMiddleNavLink() {
-        clickElement(getMiddleNavLink());
+        clickElement(middleNavLink);
     }
 
     public void clickHomePageIconLink() {
-        clickElement(getHomePageIconLink());
+        clickElement(homePageIconLink);
     }
 
 }

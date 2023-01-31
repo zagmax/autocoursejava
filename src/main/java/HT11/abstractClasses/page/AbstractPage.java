@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public abstract class AbstractPage {
-    protected WebDriver driver;
+    private WebDriver driver;
     private NavigationFragment navFrag;
 
     protected AbstractPage(WebDriver driver) {
@@ -27,9 +27,9 @@ public abstract class AbstractPage {
         getElement(locator).click();
     }
 
-    public void sendKeys(WebElement element, String keys) {
-        WebDriverWaiter.waitFor(ExpectedConditions.visibilityOf(element));
-        element.sendKeys(keys);
+    public void sendKeys(By locator, String keys) {
+        WebDriverWaiter.waitFor(ExpectedConditions.visibilityOfElementLocated(locator));
+        driver.findElement(locator).sendKeys(keys);
     }
 
     public WebElement getElement(By locator) {
