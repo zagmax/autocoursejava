@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegexTask {
     public boolean matchStringToRegex(String text, String regex) {
         return (text.matches(regex));
@@ -21,14 +24,14 @@ public class RegexTask {
 
     private WebDriver driver = new ChromeDriver();
 
-    public String getAddress(){
+    public void getAddress(){
         driver.get("https://www.epam.com/about/who-we-are/contact");
         String address=driver.findElement(By.cssSelector("b:first-child span.font-size-22:first-child")).getText();
         driver.quit();
-        if(address.matches("\\d+\\ [A-Za-z\\ ]+\\ •\\ [A-Za-z\\ ]+\\d+,\\n[A-Za-z\\ ]+,\\ \\w+\\ \\d+\\ •\\ \\w+")){
-            return address;
+        Pattern p = Pattern.compile("[\\w ]+");
+        Matcher m = p.matcher(address);
+        while(m.find()){
+            System.out.println(m.group());
         }
-        else return "Valid Address info isn't found";
     }
-
 }
