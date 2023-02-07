@@ -5,13 +5,12 @@ import HT11.utils.WebDriverWaiter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public abstract class AbstractPage {
     private WebDriver driver;
     private NavigationFragment navFrag;
 
-    protected AbstractPage(WebDriver driver) {
+    public AbstractPage(WebDriver driver) {
         this.driver = driver;
         getNavFrag();
     }
@@ -28,12 +27,12 @@ public abstract class AbstractPage {
     }
 
     public void sendKeys(By locator, String keys) {
-        WebDriverWaiter.waitFor(ExpectedConditions.visibilityOfElementLocated(locator));
+        WebDriverWaiter.waitForElementToAppear(locator);
         driver.findElement(locator).sendKeys(keys);
     }
 
     public WebElement getElement(By locator) {
-        WebDriverWaiter.waitFor(ExpectedConditions.visibilityOf(driver.findElement(locator)));
+        WebDriverWaiter.waitForElementToAppear(locator);
         return driver.findElement(locator);
     }
 }
